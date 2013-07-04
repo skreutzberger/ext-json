@@ -32,7 +32,7 @@ def _obj_dump(obj):
     elif isinstance(obj, datetime.datetime):
         r = obj.isoformat()
         if obj.microsecond:
-            r = r[:23] + r[26:]
+            r = r[:26]
         if r.endswith('+00:00'):
             r = r[:-6] + 'Z'
         return r
@@ -45,7 +45,7 @@ def _obj_dump(obj):
             raise ValueError("JSON can't represent timezone-aware times.")
         r = obj.isoformat()
         if obj.microsecond:
-            r = r[:12]
+            r = r[:15]
         return r
     elif isinstance(obj, set):
         return list(obj)
